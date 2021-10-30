@@ -14,7 +14,7 @@ export default function Details() {
     <div className="details-wrapper">
       <div className="details-wrapper--left">
         <h1 className="details-wrapper--title">Airlines</h1>
-        <p className="details-wrapper--filter"> Filter by Alliances </p>
+        <p className="details-wrapper--filter">Filter by Alliances</p>
         <div className="details-wrapper--options">{renderFilters()}</div>
       </div>
     </div>
