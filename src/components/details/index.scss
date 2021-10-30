@@ -1,7 +1,6 @@
 .details-wrapper {
   padding: 0px;
   margin-top: 67px;
-  border: 1px solid blue;
   height: 250px;
 
   &--left {
@@ -14,5 +13,11 @@
 
   &--filter {
     margin-top: 73px;
+  }
+
+  &--options {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
   }
 }
