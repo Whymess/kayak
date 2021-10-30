@@ -1,9 +1,11 @@
 import React from "react";
-import { Navbar } from "../../components";
+import { Navbar, Details } from "../../components";
+import "./index.scss";
 export default function Application() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid application">
       <Navbar />
+      <Details />
     </div>
   );
 }
