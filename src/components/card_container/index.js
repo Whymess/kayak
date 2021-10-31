@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.scss";
 import { Card } from "../../components/";
+import { useGetAirlines } from "../../api";
 
 export default function CardContainer() {
-  return (
-    <div className="card-container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </div>
-  );
+  const { data, execute, isLoading } = useGetAirlines();
+
+  useEffect(() => {
+    try {
+      execute();
+    } catch (error) {
+      return error;
+    }
+  }, [execute]);
+
+  const renderCard = () => {
+    return (
+      data &&
+      data.map((el, i) => {
+        let { phone, site, name } = el;
+        return <Card phone={phone} site={site} name={name} />;
+      })
+    );
+  };
+
+  return <div className="card-container">{renderCard()}</div>;
 }
