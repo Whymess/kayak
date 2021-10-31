@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./index.scss";
-import { Card } from "../../components/";
+import { Card, Loader } from "../../components/";
 import { useGetAirlines } from "../../api";
 
 export default function CardContainer() {
@@ -15,11 +15,23 @@ export default function CardContainer() {
   }, [execute]);
 
   const renderCard = () => {
+    if (isLoading) {
+      return <Loader />;
+    }
+
     return (
       data &&
       data.map((el, i) => {
-        let { phone, site, name } = el;
-        return <Card phone={phone} site={site} name={name} />;
+        let { phone, site, name, alliance } = el;
+        return (
+          <Card
+            phone={phone}
+            site={site}
+            name={name}
+            alliance={alliance}
+            key={i + 1}
+          />
+        );
       })
     );
   };
