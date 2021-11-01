@@ -1,7 +1,8 @@
 .card-container {
   margin-left: 94px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 300px);
+  grid-template-rows: repeat(4, 240px);
   row-gap: 16px;
   column-gap: 16px;
 }
