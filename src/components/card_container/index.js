@@ -47,6 +47,8 @@ export default function CardContainer(props) {
             />
           );
         }
+
+        return false;
       })
     );
   };
