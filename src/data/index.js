@@ -1,5 +1,7 @@
-const data = {
-  filters: ["Oneworld", "Sky Team", "Star Alliance"],
+const filters = {
+  OW: "Oneworld",
+  ST: "Sky Team",
+  SA: "Star Alliance",
 };
 
-export default data;
+export default filters;

@@ -3,8 +3,9 @@ import "./index.scss";
 import { Card, Loader } from "../../components/";
 import { useGetAirlines } from "../../api";
 
-export default function CardContainer() {
+export default function CardContainer(props) {
   const { data, execute, isLoading } = useGetAirlines();
+  let { checkedboxes } = props;
 
   useEffect(() => {
     try {
@@ -23,15 +24,29 @@ export default function CardContainer() {
       data &&
       data.map((el, i) => {
         let { phone, site, name, alliance } = el;
-        return (
-          <Card
-            phone={phone}
-            site={site}
-            name={name}
-            alliance={alliance}
-            key={i + 1}
-          />
-        );
+        if (checkedboxes.length === 0) {
+          return (
+            <Card
+              phone={phone}
+              site={site}
+              name={name}
+              alliance={alliance}
+              key={i + 1}
+            />
+          );
+        }
+
+        if (checkedboxes.includes(alliance)) {
+          return (
+            <Card
+              phone={phone}
+              site={site}
+              name={name}
+              alliance={alliance}
+              key={i + 1}
+            />
+          );
+        }
       })
     );
   };

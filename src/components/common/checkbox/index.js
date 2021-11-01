@@ -1,12 +1,13 @@
 import React from "react";
 
 export default function Checkbox(props) {
-  let { label, onChange, value } = props;
+  let { label, onClick, value, name } = props;
   return (
     <div className="form-check">
       <input
-        onChange={onChange}
+        onClick={onClick}
         value={value}
+        name={name}
         className="form-check-input"
         type="checkbox"
       />

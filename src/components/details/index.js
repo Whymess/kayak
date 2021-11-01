@@ -1,12 +1,16 @@
 import React from "react";
 import "./index.scss";
-import data from "../../data";
+import filters from "../../data";
 import { Checkbox } from "../../components/common";
 
-export default function Details() {
+export default function Details(props) {
+  let { onClick } = props;
+
   const renderFilters = () => {
-    return data.filters.map((el, i) => {
-      return <Checkbox label={el} key={i + 1} />;
+    return Object.entries(filters).map((el, i) => {
+      return (
+        <Checkbox onClick={onClick} label={el[1]} name={el[0]} key={i + 1} />
+      );
     });
   };
 
